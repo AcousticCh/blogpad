@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    {% load static %}
+    <meta charset="UTF-8">
+	
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	
+    <title>blogpad home</title>
+	
+    <link rel="stylesheet" href="{% static 'blog/home.css' %}">
+    <!-- <script src="{% static 'blog/login.js' %}" defer></script> -->
+
+  </head>
+
+  <body>
+	
+    <header>
+      <h1>Blogpad</h1>
+      <div id="header-stack">
+      <form id="form" role="search">
+        <input id="search-bar" type="search" id="query" name="q"
+        placeholder="Search..."
+        aria-label="Search through site content">
+        <button>Search</button>
+      </form>
+        <a href="{% url "blog:login" %}">
+          Login/Register
+        </a>
+      </div>  
+    </header>
+    <section id="intro" class="home-section">
+      <h2>Welcome To Blogpad</h2>
+      <p>This is a blogging website for personal journals and tutorials under the topic of technology.</p>
+      <p>Here every blog or post become a whole page of its own with its own url for people to search.</p>
+    </section>
+    <section id="post" class="home-section">
+      <h2>Recommended Post</h2>
+      <div class="post-cont">
+      <article class="post-box">
+        box
+      </article>
+      <article class="post-box">
+        box
+      </article>
+      <article class="post-box">
+        box
+      </article>
+      <article class="post-box">
+        link title and topic to markdown file,
+        place that topic andtitle in here, get title and topic when converting mardown to html
+      </article>
+      </div>
+    </section>
+
+  </body>
+
+</html>

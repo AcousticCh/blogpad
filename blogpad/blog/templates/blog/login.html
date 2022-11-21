@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    {% load static %}
+    <meta charset="UTF-8">
+	
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	
+    <title>blogpad login</title>
+	
+    <link rel="stylesheet" href="{% static 'blog/login.css' %}">
+    <script src="{% static 'blog/login.js' %}" defer></script>
+
+  </head>
+
+  <body>
+	
+    <div id="login-container">
+      <form action="{% url 'blog:login-auth' %}" id="login-form" method="post">
+        {% csrf_token %}
+        <h2 id="login-title">Login</h2>
+        {% if error_message %}
+          <p>{{ error_message }}</p>
+        {% endif %}
+        <input id="username-input" class="text-input" type="text" placeholder="Username" name="login-username"/>
+        <input id="password-input" class="text-input" type="password" placeholder="Password" name="login-password"/>
+        <input id="submit-button" type="submit" value="Login"/>
+        <a id="register-link">
+        Not registered? Create Account!
+        </a>
+      </form>
+    
+      <form action="{% url 'blog:signup-auth' %}" id="register-form" method="post">
+        {% csrf_token %}
+        <h2 id="register-title">Create Account</h2>
+        <input type="email" class="text-input" placeholder="email" name="signup-email"/>
+        <input id="username-input" class="text-input" type="text" placeholder="Username" name="signup-username"/>
+        <input id="password-input" class="text-input" type="password" placeholder="Password" name="signup-password"/>
+        <input id="password-input" class="text-input" type="password" placeholder="Re-enter Password" name="signup-password2"/>
+        <input id="submit-button" type="submit" value="register"/>
+        <a id="login-link">
+          Already registered? Login!
+        </a>
+      </form>
+    </div>
+
+  </body>
+
+</html>
